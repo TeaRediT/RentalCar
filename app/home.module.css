@@ -1,0 +1,33 @@
+.hero {
+  position: relative;
+  background-color: var(--main);
+  padding: 436px 0 60px 0;
+  z-index: -11;
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.img {
+  position: absolute;
+  object-fit: cover;
+  z-index: -10;
+}
+
+.title {
+  color: var(--white);
+  font-size: 60px;
+  line-height: 1.2;
+
+  margin-bottom: 16px;
+}
+
+.slogan {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.33;
+  color: var(--white);
+
+  margin-bottom: 40px;
+}
