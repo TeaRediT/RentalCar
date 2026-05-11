@@ -25,7 +25,53 @@ body {
   background: var(--white);
 }
 
+/*container*/
+
 .container {
   max-width: 1440px;
+  margin: 0 auto;
   padding: 0 120px;
+}
+
+/*reset*/
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+ol,
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+input,
+textarea,
+select {
+  outline: none;
+}
+
+textarea {
+  resize: none;
+}
+
+img,
+picture,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
 }
