@@ -3,6 +3,7 @@ import { Manrope } from "next/font/google";
 import "./globals.css";
 import TanStackProvider from "@/components/TanStackProvider/TanStackProvider";
 import Header from "@/components/Header/Header";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 const manrope = Manrope({
   variable: "--font-family",
@@ -27,6 +28,7 @@ export default function RootLayout({
         <body>
           <Header />
           {children}
+          <ReactQueryDevtools />
         </body>
       </TanStackProvider>
     </html>
