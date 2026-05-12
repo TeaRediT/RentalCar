@@ -1,5 +1,6 @@
 import Image from "next/image";
 import css from "./home.module.css";
+import ButtonLink from "@/components/ButtonLink/ButtonLink";
 
 const Home = () => {
   return (
@@ -16,7 +17,7 @@ const Home = () => {
         <p className={css.slogan}>
           Reliable and budget-friendly rentals for any journey
         </p>
-        <button>View Catalog</button>
+        <ButtonLink href={"/catalog"}>View Catalog</ButtonLink>
       </div>
     </main>
   );

@@ -1,0 +1,20 @@
+.button {
+  height: 44px;
+  min-width: 276px;
+  background-color: var(--button);
+  color: var(--white);
+  font-weight: 600;
+  line-height: 1.25;
+  border-radius: 12px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  transition: background-color 250ms ease-in-out;
+}
+
+.button:hover,
+.button:focus {
+  background-color: var(--button-hover);
+}

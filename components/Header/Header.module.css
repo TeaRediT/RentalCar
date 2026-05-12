@@ -33,7 +33,6 @@
 }
 
 .nav-link:focus,
-.nav-link:hover,
-.nav-link:active {
+.nav-link:hover {
   color: var(--button-hover);
 }
