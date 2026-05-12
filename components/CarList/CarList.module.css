@@ -1,0 +1,85 @@
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 48px;
+  column-gap: 32px;
+}
+
+.list-item {
+  width: calc((100% - 96px) / 4);
+}
+
+.img-wrapper {
+  position: relative;
+  height: 268px;
+  border-radius: 14px;
+  overflow: hidden;
+
+  margin-bottom: 16px;
+}
+
+.img {
+  object-fit: cover;
+  object-position: center;
+  z-index: -11;
+}
+
+.heart {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: 16px;
+  right: 16px;
+}
+
+.car-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 8px;
+}
+
+.car-name,
+.car-price {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+}
+
+.car-title span {
+  color: var(--button);
+}
+
+.car-desc {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  margin-bottom: 28px;
+}
+
+.car-desc ul {
+  display: flex;
+  gap: 12px;
+}
+
+.car-desc ul li {
+  position: relative;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.33;
+  color: var(--gray);
+}
+
+.rent-info li::after,
+.tech-info li:not(:last-child)::after {
+  position: absolute;
+  content: "";
+  width: 1px;
+  height: 16px;
+  margin-left: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: var(--gray-light);
+}

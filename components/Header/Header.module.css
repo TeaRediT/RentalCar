@@ -22,9 +22,6 @@
 }
 
 .nav-link {
-  font-weight: 500;
-  line-height: 1.25;
-
   transition: color 250ms ease-in-out;
 }
 
