@@ -32,17 +32,19 @@ const CatalogClient = () => {
     <main>
       <div className={`container ${css.page}`}>
         <h1 className="visually-hidden">Rental Car Catalog</h1>
-        <section>
+        <section className={css["search-section"]}>
           <h2 className="visually-hidden">Search cars</h2>
           <CarSearchForm handleSubmit={fetchValues} />
         </section>
-        {cars.length > 0 && (
-          <section>
-            <h2 className="visually-hidden">Cars list</h2>
-            <CarList cars={cars} />
-            <button type="button">Load more</button>
-          </section>
-        )}
+        <section className={css["catalog-section"]}>
+          {cars.length > 0 && (
+            <>
+              <h2 className="visually-hidden">Cars list</h2>
+              <CarList cars={cars} />
+              <button type="button">Load more</button>
+            </>
+          )}
+        </section>
       </div>
     </main>
   );

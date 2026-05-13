@@ -1,0 +1,97 @@
+.form {
+  display: flex;
+  gap: 16px;
+}
+
+.form label {
+  display: inline-block;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.33;
+  color: var(--gray);
+
+  margin-bottom: 8px;
+}
+
+.form input,
+.select-container :global(.select__control) {
+  border-radius: 12px;
+  background-color: var(--inputs);
+  border: none;
+  min-height: 44px;
+}
+
+.select-container :global(.select__control) {
+  cursor: pointer;
+}
+
+.brand-select-container :global(.select__control) {
+  min-width: 204px;
+}
+
+.price-select-container :global(.select__control) {
+  min-width: 196px;
+}
+
+.select-container :global(.select__value-container) {
+  padding: 12px 16px;
+}
+
+.select-container :global(.select__placeholder),
+.select-container :global(.select__single-value) {
+  color: var(--main);
+  margin: 0;
+}
+
+/* іконка */
+.select-container :global(.select__dropdown-indicator) {
+  padding: 0 18px 0 8px;
+}
+
+.select-container :global(.select__menu) {
+  border-radius: 12px;
+  border: 1px solid var(--inputs);
+  box-shadow: 0 4px 36px 0 rgba(0, 0, 0, 0.02);
+  margin-top: 4px;
+  background-color: var(--white);
+}
+
+.brand-select-container :global(.select__menu) {
+  height: 272px;
+}
+
+.price-select-container :global(.select__menu) {
+  height: 188px;
+}
+
+.select-container :global(.select__menu-list) {
+  padding: 14px 0 14px 18px;
+  max-height: 272px;
+}
+
+/* Скролбар */
+.select-container :global(.select__menu-list::-webkit-scrollbar) {
+  width: 8px;
+}
+.select-container :global(.select__menu-list::-webkit-scrollbar-track) {
+  background: transparent;
+}
+.select-container :global(.select__menu-list::-webkit-scrollbar-thumb) {
+  background: rgba(18, 20, 23, 0.05);
+  border-radius: 10px;
+}
+
+/* Опції в списку */
+.select-container :global(.select__option) {
+  background-color: transparent !important;
+  color: red;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 4px 0;
+  cursor: pointer;
+}
+
+.select-container :global(.select__option--is-focused),
+.select-container :global(.select__option--is-selected) {
+  color: #121417;
+}

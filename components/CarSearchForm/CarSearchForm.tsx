@@ -52,7 +52,7 @@ const CarSearchForm = ({ handleSubmit }: CarSearchFormProps) => {
       onSubmit={onFormSubmit}
       validationSchema={CarSearchFormSchema}
     >
-      <Form>
+      <Form className={css.form}>
         {brandOptions && (
           <div>
             <label htmlFor={`${fieldId}-brand`}>Car brand</label>
@@ -66,11 +66,13 @@ const CarSearchForm = ({ handleSubmit }: CarSearchFormProps) => {
                 return (
                   <>
                     <Select
-                      className={css["brand-select"]}
+                      className={`${css["select-container"]} ${css["brand-select-container"]}`}
+                      classNamePrefix={`select`}
                       instanceId={`${fieldId}-brand-select`}
                       inputId={`${fieldId}-brand`}
                       options={brandOptions}
                       value={selectedOption}
+                      placeholder="Choose a brand"
                       onChange={(option) =>
                         form.setFieldValue(
                           field.name,
@@ -78,7 +80,10 @@ const CarSearchForm = ({ handleSubmit }: CarSearchFormProps) => {
                         )
                       }
                       onBlur={() => form.setFieldTouched(field.name, true)}
-                      placeholder="Choose a brand"
+                      isSearchable={false}
+                      components={{
+                        IndicatorSeparator: () => null,
+                      }}
                     />
                     {hasError && <span className={css.span}>{meta.error}</span>}
                   </>
@@ -99,11 +104,13 @@ const CarSearchForm = ({ handleSubmit }: CarSearchFormProps) => {
               return (
                 <>
                   <Select
-                    className={css["price-select"]}
+                    className={`${css["select-container"]} ${css["price-select-container"]}`}
+                    classNamePrefix={`select`}
                     instanceId={`${fieldId}-price-select`}
                     inputId={`${fieldId}-price`}
                     options={priceOptions}
                     value={selectedOption}
+                    placeholder="Choose a price"
                     onChange={(option) =>
                       form.setFieldValue(field.name, option ? option.value : "")
                     }
@@ -114,7 +121,10 @@ const CarSearchForm = ({ handleSubmit }: CarSearchFormProps) => {
                       return option.label;
                     }}
                     onBlur={() => form.setFieldTouched(field.name, true)}
-                    placeholder="Choose a price"
+                    isSearchable={false}
+                    components={{
+                      IndicatorSeparator: () => null,
+                    }}
                   />
                   {hasError && <span className={css.span}>{meta.error}</span>}
                 </>
