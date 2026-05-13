@@ -6,13 +6,7 @@ import {
 import { fetchBrands, fetchCars } from "@/lib/api";
 import CatalogClient from "./Catalog.client";
 import { carsQueryOptions } from "@/services/carsQueryOptions";
-
-const defaultFilter = {
-  brand: "",
-  rentalPrice: "",
-  minMileage: "",
-  maxMileage: "",
-};
+import { defaultFilter } from "@/types/filter";
 
 const Catalog = async () => {
   const queryClient = new QueryClient();
@@ -20,7 +14,7 @@ const Catalog = async () => {
   await Promise.all([
     await queryClient.prefetchInfiniteQuery({
       queryKey: ["cars", defaultFilter],
-      queryFn: () => fetchCars({ page: 1 }),
+      queryFn: () => fetchCars({ page: 1, activeFilters: defaultFilter }),
       ...carsQueryOptions,
     }),
     await queryClient.prefetchQuery({
