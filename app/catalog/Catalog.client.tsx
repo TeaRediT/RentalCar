@@ -8,6 +8,7 @@ import CarList from "@/components/CarList/CarList";
 import CarSearchForm from "@/components/CarSearchForm/CarSearchForm";
 import { useState } from "react";
 import { activeFilters, defaultFilter } from "@/types/filter";
+import { Car } from "@/types/cars";
 
 const CatalogClient = () => {
   const [activeFilters, setActiveFilters] =
@@ -20,11 +21,11 @@ const CatalogClient = () => {
     refetchOnMount: false,
   });
 
-  const cars = data?.pages.flatMap((page) => page.cars) ?? [];
+  let cars: Car[] = [];
 
-  // const cars = [];
-
-  console.log(data);
+  if (data) {
+    cars = data.pages.flatMap((page) => page.cars);
+  }
 
   const fetchValues = (values: activeFilters) => {
     setActiveFilters(values);

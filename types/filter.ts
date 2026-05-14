@@ -1,13 +1,13 @@
 export const defaultFilter = {
   brand: "",
-  rentalPrice: "",
+  price: "",
   minMileage: "",
   maxMileage: "",
 };
 
 export interface activeFilters {
   brand: string;
-  rentalPrice: string;
+  price: string;
   minMileage: string;
   maxMileage: string;
 }

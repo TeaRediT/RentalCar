@@ -21,7 +21,7 @@ interface CarSearchFormProps {
 
 const initialValues: activeFilters = {
   brand: "",
-  rentalPrice: "",
+  price: "",
   minMileage: "",
   maxMileage: "",
 };
@@ -48,7 +48,7 @@ const CarSearchForm = ({ handleSubmit }: CarSearchFormProps) => {
 
     const { min, max } = data.price;
     const step = 10;
-    const rangePrices = generatePrices({ min, max: 200, step });
+    const rangePrices = generatePrices({ min, max, step });
 
     priceOptions = rangePrices.map((brand) => {
       return { label: brand, value: brand };
@@ -108,7 +108,7 @@ const CarSearchForm = ({ handleSubmit }: CarSearchFormProps) => {
         )}
         <div>
           <label htmlFor={`${fieldId}-price`}>Price/ 1 hour</label>
-          <Field name="rentalPrice">
+          <Field name="price">
             {({ field, form, meta }: FieldProps) => {
               const hasError = meta.touched && meta.error;
 

@@ -21,8 +21,7 @@ export const fetchCars = async ({
   params.append("perPage", "12");
 
   if (activeFilters.brand !== "") params.append("brand", activeFilters.brand);
-  if (activeFilters.rentalPrice !== "")
-    params.append("rentalPrice", activeFilters.rentalPrice);
+  if (activeFilters.price !== "") params.append("price", activeFilters.price);
   if (activeFilters.minMileage !== "")
     params.append("minMileage", activeFilters.minMileage);
   if (activeFilters.maxMileage !== "")

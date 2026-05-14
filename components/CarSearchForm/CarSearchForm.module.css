@@ -54,22 +54,23 @@
   box-shadow: 0 4px 36px 0 rgba(0, 0, 0, 0.02);
   margin-top: 4px;
   background-color: var(--white);
+  overflow: hidden;
 }
 
-.brand-select-container :global(.select__menu) {
+.brand-select-container :global(.select__menu),
+.brand-select-container :global(.select__menu-list) {
   height: 272px;
 }
 
-.price-select-container :global(.select__menu) {
+.price-select-container :global(.select__menu),
+.price-select-container :global(.select__menu-list) {
   height: 188px;
 }
 
 .select-container :global(.select__menu-list) {
   padding: 14px 0 14px 18px;
-  max-height: 272px;
 }
 
-/* Скролбар */
 .select-container :global(.select__menu-list::-webkit-scrollbar) {
   width: 8px;
 }
@@ -77,21 +78,20 @@
   background: transparent;
 }
 .select-container :global(.select__menu-list::-webkit-scrollbar-thumb) {
-  background: rgba(18, 20, 23, 0.05);
+  background: var(--gray-light);
   border-radius: 10px;
 }
 
-/* Опції в списку */
-.select-container :global(.select__option) {
-  background-color: transparent !important;
-  color: red;
-  font-size: 16px;
-  font-weight: 500;
-  padding: 4px 0;
+.form .select-container :global(.select__option) {
+  background-color: transparent;
+  padding: 8px 0;
   cursor: pointer;
+  color: var(--gray);
+
+  transition: color 250ms ease-in-out;
 }
 
-.select-container :global(.select__option--is-focused),
-.select-container :global(.select__option--is-selected) {
-  color: #121417;
+.form .select-container :global(.select__option--is-focused),
+.form .select-container :global(.select__option--is-selected) {
+  color: var(--main);
 }
