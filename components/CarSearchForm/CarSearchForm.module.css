@@ -25,6 +25,10 @@
   cursor: pointer;
 }
 
+.select-container :global(.select__control--is-focused) {
+  box-shadow: none;
+}
+
 .brand-select-container :global(.select__control) {
   min-width: 204px;
 }
@@ -34,18 +38,18 @@
 }
 
 .select-container :global(.select__value-container) {
-  padding: 12px 16px;
+  padding: 0;
 }
 
 .select-container :global(.select__placeholder),
 .select-container :global(.select__single-value) {
   color: var(--main);
   margin: 0;
+  padding: 12px 16px;
 }
 
-/* іконка */
 .select-container :global(.select__dropdown-indicator) {
-  padding: 0 18px 0 8px;
+  padding: 14px 16px;
 }
 
 .select-container :global(.select__menu) {
@@ -55,6 +59,7 @@
   margin-top: 4px;
   background-color: var(--white);
   overflow: hidden;
+  padding-right: 8px;
 }
 
 .brand-select-container :global(.select__menu),
@@ -74,8 +79,10 @@
 .select-container :global(.select__menu-list::-webkit-scrollbar) {
   width: 8px;
 }
+
 .select-container :global(.select__menu-list::-webkit-scrollbar-track) {
   background: transparent;
+  margin: 12px 0;
 }
 .select-container :global(.select__menu-list::-webkit-scrollbar-thumb) {
   background: var(--gray-light);
@@ -94,4 +101,58 @@
 .form .select-container :global(.select__option--is-focused),
 .form .select-container :global(.select__option--is-selected) {
   color: var(--main);
+}
+
+/*inputs*/
+
+.mileage-group {
+  display: flex;
+  align-items: end;
+}
+
+.input-wrapper,
+.select-wrapper {
+  position: relative;
+}
+
+.prefix {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 24px;
+  user-select: none;
+  pointer-events: none;
+}
+
+.input-with-label {
+  display: flex;
+  flex-direction: column;
+}
+
+.input {
+  font-weight: 500;
+  color: inherit;
+  width: 160px;
+  padding: 12px 0;
+}
+
+.mileage-group > div:first-child .input {
+  border-radius: 14px 0 0 14px;
+  border-right: 1px solid var(--gray-light);
+  padding-left: 64px;
+}
+
+.mileage-group > div:last-child .input {
+  border-radius: 0 14px 14px 0;
+  padding-left: 44px;
+}
+
+.error {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  font-size: 12px;
+  color: #f44336;
+  white-space: nowrap;
+  padding-top: 4px;
 }

@@ -11,7 +11,7 @@ const Header = () => {
     <header className={css.header}>
       <div className={`container ${css["header-items"]}`}>
         <Link href={"/"}>
-          <svg className={css.logo}>
+          <svg width={104} height={16}>
             <use href="/sprite.svg#icon-logo"></use>
           </svg>
         </Link>

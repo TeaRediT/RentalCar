@@ -26,7 +26,7 @@ const CarList = ({ cars }: CarListProps) => {
                   sizes="276px"
                   priority={index < 4}
                 ></Image>
-                <svg className={css.heart}>
+                <svg width={16} height={16} className={css.heart}>
                   <use href="/sprite.svg#icon-heart-default"></use>
                 </svg>
               </div>
