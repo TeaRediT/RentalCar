@@ -4,7 +4,7 @@ import axios from "axios";
 
 interface FiltersRes {
   brands: string[];
-  price: string[];
+  price: { min: number; max: number };
 }
 
 axios.defaults.baseURL = "https://car-rental-api.goit.study";
@@ -33,7 +33,7 @@ export const fetchCars = async ({
   return data;
 };
 
-export const fetchFilters = async (): Promise<FiltersRes[]> => {
-  const { data } = await axios.get<FiltersRes[]>("/cars/filters");
+export const fetchFilters = async (): Promise<FiltersRes> => {
+  const { data } = await axios.get<FiltersRes>("/cars/filters");
   return data;
 };

@@ -8,6 +8,12 @@ import { fetchFilters } from "@/lib/api";
 import Select from "react-select";
 import { activeFilters } from "@/types/filter";
 import { CarSearchFormSchema } from "./CarSearchFormSchema";
+import { generatePrices } from "@/services/generatePricesByRange";
+
+interface SelectOption {
+  label: string;
+  value: string;
+}
 
 interface CarSearchFormProps {
   handleSubmit: (values: activeFilters) => void;
@@ -29,20 +35,27 @@ const CarSearchForm = ({ handleSubmit }: CarSearchFormProps) => {
     refetchOnMount: false,
   });
 
-  // console.log(data);
+  let brandOptions: SelectOption[] = [];
+  let priceOptions: SelectOption[] = [];
 
-  // const brandOptions = data.map((brand) => {
-  //   return { label: brand, value: brand };
-  // });
+  if (data) {
+    //get brands
+    brandOptions = data.brands.map((brand) => {
+      return { label: brand, value: brand };
+    });
 
-  const brandOptions = [{ label: "hello", value: "hello" }];
+    //get prices
 
-  const priceOptions = [{ label: "hello", value: "hello" }];
+    const { min, max } = data.price;
+    const step = 10;
+    const rangePrices = generatePrices({ min, max: 200, step });
 
-  // const priceOptions = rentPrices.map((price) => {
-  //   return { label: price, value: price };
-  // });
+    priceOptions = rangePrices.map((brand) => {
+      return { label: brand, value: brand };
+    });
+  }
 
+  //form submit
   const onFormSubmit = (values: activeFilters) => {
     handleSubmit(values);
   };
