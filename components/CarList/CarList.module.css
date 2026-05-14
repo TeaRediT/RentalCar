@@ -6,6 +6,8 @@
 }
 
 .list-item {
+  display: flex;
+  flex-direction: column;
   width: calc((100% - 96px) / 4);
 }
 
@@ -35,9 +37,13 @@
 .car-title {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: start;
 
   margin-bottom: 8px;
+}
+
+.car-name {
+  max-width: 210px;
 }
 
 .car-name,
@@ -82,4 +88,8 @@
   top: 50%;
   transform: translateY(-50%);
   background-color: var(--gray-light);
+}
+
+.list-item a {
+  margin-top: auto;
 }
