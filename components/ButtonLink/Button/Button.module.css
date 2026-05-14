@@ -1,0 +1,38 @@
+.btn {
+  height: 44px;
+  min-width: 156px;
+  font-weight: 600;
+  line-height: 1.25;
+  border-radius: 12px;
+  cursor: pointer;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  transition: background-color 250ms ease-in-out;
+}
+
+.btn-submit {
+  background-color: var(--button);
+  color: var(--white);
+  border: none;
+}
+
+.btn-submit:hover,
+.btn-submit:focus {
+  background-color: var(--button-hover);
+}
+
+.btn-button {
+  background-color: transparent;
+  border: 1px solid var(--button);
+  color: var(--main);
+
+  transition: border-color 250ms ease-in-out;
+}
+
+.btn-button:hover,
+.btn-button:focus {
+  border-color: var(--button-hover);
+}

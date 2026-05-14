@@ -1,17 +1,13 @@
 import { FieldInputProps, FormikProps } from "formik";
 import { ChangeEvent } from "react";
 
-interface numberFormatingInterface {
+interface numberFormatingOptions {
   e: ChangeEvent<HTMLInputElement>;
   form: FormikProps<unknown>;
   field: FieldInputProps<unknown>;
 }
 
-export const numberFormating = ({
-  e,
-  form,
-  field,
-}: numberFormatingInterface) => {
+export const numberFormating = ({ e, form, field }: numberFormatingOptions) => {
   const rawValue = e.target.value.replace(/\D/g, "");
   const limitedValue = rawValue.slice(0, 6);
   const formattedValue = limitedValue

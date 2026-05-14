@@ -1,6 +1,7 @@
 .form {
   display: flex;
   gap: 16px;
+  align-items: end;
 }
 
 .form label {

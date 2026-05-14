@@ -11,6 +11,7 @@ import { CarSearchFormSchema } from "./CarSearchFormSchema";
 import { generatePrices } from "@/services/generatePricesByRange";
 import CustomChevron from "../CustomChevron/CustomChevron";
 import { numberFormating } from "@/services/numberFormatting";
+import Button from "../ButtonLink/Button/Button";
 
 export interface SelectOption {
   label: string;
@@ -225,7 +226,7 @@ const CarSearchForm = ({ handleSubmit }: CarSearchFormProps) => {
             </div>
           </div>
         </div>
-        <button type="submit">Search</button>
+        <Button type="submit">Search</Button>
       </Form>
     </Formik>
   );

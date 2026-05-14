@@ -1,10 +1,10 @@
-interface GeneratePricesInterface {
+interface GeneratePricesOptions {
   min: number;
   max: number;
   step: number;
 }
 
-export const generatePrices = ({ min, max, step }: GeneratePricesInterface) => {
+export const generatePrices = ({ min, max, step }: GeneratePricesOptions) => {
   const res = [];
 
   for (let i = min; i <= max; i += step) {
