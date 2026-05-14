@@ -17,14 +17,16 @@ const CatalogClient = () => {
     queryKey: ["cars", activeFilters],
     queryFn: () => fetchCars({ page: 1, activeFilters }),
     ...carsQueryOptions,
+    refetchOnMount: false,
   });
 
   const cars = data?.pages.flatMap((page) => page.cars) ?? [];
 
+  // const cars = [];
+
   console.log(data);
 
   const fetchValues = (values: activeFilters) => {
-    console.log(values);
     setActiveFilters(values);
   };
 

@@ -12,10 +12,6 @@ const CarList = ({ cars }: CarListProps) => {
     <>
       <ul className={css.list}>
         {cars.map((car, index) => {
-          const adress = car.address.split(",").reverse() ?? [];
-          const country = adress[0].trim() ?? "";
-          const city = adress[1].trim() ?? "";
-
           const mileage =
             car.mileage.toLocaleString("en-US").replace(/,/g, " ") ?? "";
 
@@ -44,8 +40,8 @@ const CarList = ({ cars }: CarListProps) => {
                 </div>
                 <div className={css["car-desc"]}>
                   <ul className={css["rent-info"]}>
-                    <li>{city}</li>
-                    <li>{country}</li>
+                    <li>{car.location.city}</li>
+                    <li>{car.location.country}</li>
                     <li>{car.rentalCompany}</li>
                   </ul>
                   <ul className={css["tech-info"]}>

@@ -2,7 +2,12 @@ import { CarsResponse } from "@/types/cars";
 import { activeFilters } from "@/types/filter";
 import axios from "axios";
 
-axios.defaults.baseURL = "https://car-rental-api.goit.global";
+interface FiltersRes {
+  brands: string[];
+  price: string[];
+}
+
+axios.defaults.baseURL = "https://car-rental-api.goit.study";
 
 export const fetchCars = async ({
   page,
@@ -13,7 +18,7 @@ export const fetchCars = async ({
 }): Promise<CarsResponse> => {
   const params = new URLSearchParams();
   params.append("page", String(page));
-  params.append("limit", "12");
+  params.append("perPage", "12");
 
   if (activeFilters.brand !== "") params.append("brand", activeFilters.brand);
   if (activeFilters.rentalPrice !== "")
@@ -28,7 +33,7 @@ export const fetchCars = async ({
   return data;
 };
 
-export const fetchBrands = async (): Promise<string[]> => {
-  const { data } = await axios.get<string[]>("/brands");
+export const fetchFilters = async (): Promise<FiltersRes[]> => {
+  const { data } = await axios.get<FiltersRes[]>("/cars/filters");
   return data;
 };

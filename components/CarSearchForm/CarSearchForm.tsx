@@ -4,7 +4,7 @@ import { Form, Formik, Field, FieldProps } from "formik";
 import { useId } from "react";
 import css from "./CarSearchForm.module.css";
 import { useQuery } from "@tanstack/react-query";
-import { fetchBrands } from "@/lib/api";
+import { fetchFilters } from "@/lib/api";
 import Select from "react-select";
 import { activeFilters } from "@/types/filter";
 import { CarSearchFormSchema } from "./CarSearchFormSchema";
@@ -20,27 +20,28 @@ const initialValues: activeFilters = {
   maxMileage: "",
 };
 
-const rentPrices = ["30", "40", "50", "60", "70", "80", "90", "100", "150"];
-
 const CarSearchForm = ({ handleSubmit }: CarSearchFormProps) => {
   const fieldId = useId();
 
-  const {
-    data: brands,
-    isLoading,
-    error,
-  } = useQuery({
-    queryKey: ["brands"],
-    queryFn: fetchBrands,
+  const { data, isLoading, error } = useQuery({
+    queryKey: ["filters"],
+    queryFn: fetchFilters,
+    refetchOnMount: false,
   });
 
-  const brandOptions = brands?.map((brand) => {
-    return { label: brand, value: brand };
-  });
+  // console.log(data);
 
-  const priceOptions = rentPrices.map((price) => {
-    return { label: price, value: price };
-  });
+  // const brandOptions = data.map((brand) => {
+  //   return { label: brand, value: brand };
+  // });
+
+  const brandOptions = [{ label: "hello", value: "hello" }];
+
+  const priceOptions = [{ label: "hello", value: "hello" }];
+
+  // const priceOptions = rentPrices.map((price) => {
+  //   return { label: price, value: price };
+  // });
 
   const onFormSubmit = (values: activeFilters) => {
     handleSubmit(values);

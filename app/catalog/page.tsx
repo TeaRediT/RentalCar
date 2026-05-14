@@ -3,7 +3,7 @@ import {
   HydrationBoundary,
   QueryClient,
 } from "@tanstack/react-query";
-import { fetchBrands, fetchCars } from "@/lib/api";
+import { fetchCars, fetchFilters } from "@/lib/api";
 import CatalogClient from "./Catalog.client";
 import { carsQueryOptions } from "@/services/carsQueryOptions";
 import { defaultFilter } from "@/types/filter";
@@ -18,8 +18,8 @@ const Catalog = async () => {
       ...carsQueryOptions,
     }),
     await queryClient.prefetchQuery({
-      queryKey: ["brands"],
-      queryFn: fetchBrands,
+      queryKey: ["filters"],
+      queryFn: fetchFilters,
     }),
   ]);
 
