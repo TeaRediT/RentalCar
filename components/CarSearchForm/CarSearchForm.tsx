@@ -11,7 +11,7 @@ import { CarSearchFormSchema } from "./CarSearchFormSchema";
 import { generatePrices } from "@/services/generatePricesByRange";
 import CustomChevron from "../CustomChevron/CustomChevron";
 import { numberFormating } from "@/services/numberFormatting";
-import Button from "../ButtonLink/Button/Button";
+import Button from "../Button/Button";
 
 export interface SelectOption {
   label: string;

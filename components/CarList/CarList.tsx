@@ -2,6 +2,7 @@ import { Car } from "@/types/cars";
 import css from "./CarList.module.css";
 import Image from "next/image";
 import ButtonLink from "../ButtonLink/ButtonLink";
+import Svg from "../Svg/Svg";
 
 interface CarListProps {
   cars: Car[];
@@ -26,9 +27,7 @@ const CarList = ({ cars }: CarListProps) => {
                   sizes="276px"
                   priority={index < 4}
                 ></Image>
-                <svg width={16} height={16} className={css.heart}>
-                  <use href="/sprite.svg#icon-heart-default"></use>
-                </svg>
+                <Svg id="heart-default" className={css.heart} />
               </div>
               <div className={css["car-info"]}>
                 <div className={css["car-title"]}>

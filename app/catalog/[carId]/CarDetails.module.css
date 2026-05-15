@@ -1,0 +1,13 @@
+.page-wrapper {
+  display: flex;
+  gap: 72px;
+}
+
+.page-wrapper section {
+  width: calc((100% - 72px) / 2);
+}
+
+.img-wrapper {
+  position: relative;
+  height: 512px;
+}

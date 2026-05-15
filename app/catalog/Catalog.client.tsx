@@ -9,7 +9,7 @@ import CarSearchForm from "@/components/CarSearchForm/CarSearchForm";
 import { useState } from "react";
 import { activeFilters, defaultFilter } from "@/types/filter";
 import { Car } from "@/types/cars";
-import Button from "@/components/ButtonLink/Button/Button";
+import Button from "@/components/Button/Button";
 
 const CatalogClient = () => {
   const [activeFilters, setActiveFilters] =
@@ -23,8 +23,6 @@ const CatalogClient = () => {
       refetchOnMount: false,
     });
 
-  console.log(data);
-
   let cars: Car[] = [];
 
   if (data) {
@@ -37,13 +35,15 @@ const CatalogClient = () => {
 
   return (
     <main>
-      <div className={`container ${css.page}`}>
-        <h1 className="visually-hidden">Rental Car Catalog</h1>
-        <section className={css["search-section"]}>
+      <h1 className="visually-hidden">Rental Car Catalog</h1>
+      <section className={css["search-section"]}>
+        <div className="container">
           <h2 className="visually-hidden">Search cars</h2>
           <CarSearchForm handleSubmit={fetchValues} />
-        </section>
-        <section className={css["catalog-section"]}>
+        </div>
+      </section>
+      <section className={css["catalog-section"]}>
+        <div className="container">
           {cars.length > 0 && (
             <>
               <h2 className="visually-hidden">Cars list</h2>
@@ -59,8 +59,8 @@ const CatalogClient = () => {
               )}
             </>
           )}
-        </section>
-      </div>
+        </div>
+      </section>
     </main>
   );
 };
