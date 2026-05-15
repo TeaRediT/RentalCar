@@ -11,3 +11,8 @@ export interface activeFilters {
   minMileage: string;
   maxMileage: string;
 }
+
+export interface FiltersRes {
+  brands: string[];
+  price: { min: number; max: number };
+}

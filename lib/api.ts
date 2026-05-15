@@ -1,17 +1,7 @@
+import { BookingBody } from "@/types/booking";
 import { Car, CarsResponse } from "@/types/cars";
-import { activeFilters } from "@/types/filter";
+import { activeFilters, FiltersRes } from "@/types/filter";
 import axios from "axios";
-
-interface FiltersRes {
-  brands: string[];
-  price: { min: number; max: number };
-}
-
-interface BookingBody {
-  name: string;
-  email: string;
-  comment?: string;
-}
 
 axios.defaults.baseURL = "https://car-rental-api.goit.study";
 

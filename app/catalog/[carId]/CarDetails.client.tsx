@@ -7,6 +7,7 @@ import css from "./CarDetails.module.css";
 import Image from "next/image";
 import Svg from "@/components/Svg/Svg";
 import { useId } from "react";
+import CarRentForm from "@/components/CarRentForm/CarRentForm";
 
 const CarDetailsClient = () => {
   const { carId } = useParams<{ carId: string }>();
@@ -40,9 +41,7 @@ const CarDetailsClient = () => {
                   fetchPriority="high"
                 ></Image>
               </div>
-              <form>
-                <input type="text" />
-              </form>
+              <CarRentForm carId={car.id}></CarRentForm>
             </div>
           </section>
           <section className={css["car-info-section"]}>

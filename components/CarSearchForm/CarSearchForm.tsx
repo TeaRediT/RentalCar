@@ -7,7 +7,7 @@ import { useQuery } from "@tanstack/react-query";
 import { fetchFilters } from "@/lib/api";
 import Select from "react-select";
 import { activeFilters } from "@/types/filter";
-import { CarSearchFormSchema } from "./CarSearchFormSchema";
+import { carSearchFormSchema } from "./CarSearchFormSchema";
 import { generatePrices } from "@/services/generatePricesByRange";
 import CustomChevron from "../CustomChevron/CustomChevron";
 import { numberFormating } from "@/services/numberFormatting";
@@ -75,7 +75,7 @@ const CarSearchForm = ({ handleSubmit }: CarSearchFormProps) => {
     <Formik
       initialValues={initialValues}
       onSubmit={onFormSubmit}
-      validationSchema={() => CarSearchFormSchema(brands, prices)}
+      validationSchema={() => carSearchFormSchema(brands, prices)}
     >
       <Form className={css.form}>
         {brandOptions && (

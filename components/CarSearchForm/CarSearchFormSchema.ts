@@ -8,7 +8,7 @@ const transformMileage = (value: number, originalValue: string | number) => {
   return value;
 };
 
-export const CarSearchFormSchema = (brands: string[], prices: string[]) => {
+export const carSearchFormSchema = (brands: string[], prices: string[]) => {
   return Yup.object().shape({
     brand: Yup.string().oneOf(brands, "select a valid value from the list"),
     price: Yup.string().oneOf(prices, "select a valid value from the list"),
