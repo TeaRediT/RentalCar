@@ -52,6 +52,12 @@ export const fetchCarById = async (carId: string): Promise<Car> => {
 export const createBooking = async (
   carId: string,
   { name, email, comment }: BookingBody,
-): Promise<void> => {
-  await axios.post(`/cars/${carId}/booking-requests`, { name, email, comment });
+): Promise<string> => {
+  const { data } = await axios.post(`/cars/${carId}/booking-requests`, {
+    name,
+    email,
+    comment,
+  });
+
+  return data;
 };
