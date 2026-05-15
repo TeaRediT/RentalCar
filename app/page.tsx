@@ -17,7 +17,9 @@ const Home = () => {
         <p className={css.slogan}>
           Reliable and budget-friendly rentals for any journey
         </p>
-        <ButtonLink href={"/catalog"}>View Catalog</ButtonLink>
+        <ButtonLink href={"/catalog"} className={css.btn}>
+          View Catalog
+        </ButtonLink>
       </div>
     </main>
   );

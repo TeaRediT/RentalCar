@@ -4,11 +4,12 @@ import css from "./ButtonLink.module.css";
 interface ButtonLinkProps {
   href: string;
   children: React.ReactNode;
+  className?: string;
 }
 
-const ButtonLink = ({ href, children }: ButtonLinkProps) => {
+const ButtonLink = ({ href, children, className }: ButtonLinkProps) => {
   return (
-    <Link className={css.button} href={href}>
+    <Link className={`${css.button} ${className ? className : ""}`} href={href}>
       {children}
     </Link>
   );

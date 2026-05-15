@@ -1,6 +1,5 @@
 .button {
   height: 44px;
-  min-width: 276px;
   background-color: var(--button);
   color: var(--white);
   font-weight: 600;
