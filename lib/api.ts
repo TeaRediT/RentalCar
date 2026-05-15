@@ -7,6 +7,12 @@ interface FiltersRes {
   price: { min: number; max: number };
 }
 
+interface BookingBody {
+  name: string;
+  email: string;
+  comment?: string;
+}
+
 axios.defaults.baseURL = "https://car-rental-api.goit.study";
 
 export const fetchCars = async ({
@@ -37,8 +43,15 @@ export const fetchFilters = async (): Promise<FiltersRes> => {
   return data;
 };
 
-export const fetchCarById = async (id: string): Promise<Car> => {
-  const { data } = await axios.get<Car>(`/cars/${id}`);
+export const fetchCarById = async (carId: string): Promise<Car> => {
+  const { data } = await axios.get<Car>(`/cars/${carId}`);
 
   return data;
+};
+
+export const createBooking = async (
+  carId: string,
+  { name, email, comment }: BookingBody,
+): Promise<void> => {
+  await axios.post(`/cars/${carId}/booking-requests`, { name, email, comment });
 };
