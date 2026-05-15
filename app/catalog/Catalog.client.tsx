@@ -9,17 +9,21 @@ import CarSearchForm from "@/components/CarSearchForm/CarSearchForm";
 import { useState } from "react";
 import { activeFilters, defaultFilter } from "@/types/filter";
 import { Car } from "@/types/cars";
+import Button from "@/components/ButtonLink/Button/Button";
 
 const CatalogClient = () => {
   const [activeFilters, setActiveFilters] =
     useState<activeFilters>(defaultFilter);
 
-  const { data, isLoading, error } = useInfiniteQuery({
-    queryKey: ["cars", activeFilters],
-    queryFn: () => fetchCars({ page: 1, activeFilters }),
-    ...carsQueryOptions,
-    refetchOnMount: false,
-  });
+  const { data, isLoading, error, fetchNextPage, hasNextPage } =
+    useInfiniteQuery({
+      queryKey: ["cars", activeFilters],
+      queryFn: ({ pageParam }) => fetchCars({ page: pageParam, activeFilters }),
+      ...carsQueryOptions,
+      refetchOnMount: false,
+    });
+
+  console.log(data);
 
   let cars: Car[] = [];
 
@@ -44,7 +48,15 @@ const CatalogClient = () => {
             <>
               <h2 className="visually-hidden">Cars list</h2>
               <CarList cars={cars} />
-              <button type="button">Load more</button>
+              {hasNextPage && (
+                <Button
+                  onClick={fetchNextPage}
+                  className={css["load-btn"]}
+                  type="button"
+                >
+                  Load more
+                </Button>
+              )}
             </>
           )}
         </section>
