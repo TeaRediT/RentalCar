@@ -1,3 +1,10 @@
+import { fetchCarById } from "@/lib/api";
+import {
+  dehydrate,
+  HydrationBoundary,
+  QueryClient,
+} from "@tanstack/react-query";
+
 interface CarDetailsProps {
   params: Promise<{ carId: string }>;
 }
@@ -5,9 +12,14 @@ interface CarDetailsProps {
 const CarDetails = async ({ params }: CarDetailsProps) => {
   const { carId } = await params;
 
-  console.log(carId);
+  const queryClient = new QueryClient();
 
-  return <></>;
+  await queryClient.prefetchQuery({
+    queryKey: ["car"],
+    queryFn: () => fetchCarById(carId),
+  });
+
+  return <HydrationBoundary state={dehydrate(queryClient)}></HydrationBoundary>;
 };
 
 export default CarDetails;
