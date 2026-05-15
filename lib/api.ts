@@ -1,4 +1,4 @@
-import { CarsResponse } from "@/types/cars";
+import { Car, CarsResponse } from "@/types/cars";
 import { activeFilters } from "@/types/filter";
 import axios from "axios";
 
@@ -34,5 +34,11 @@ export const fetchCars = async ({
 
 export const fetchFilters = async (): Promise<FiltersRes> => {
   const { data } = await axios.get<FiltersRes>("/cars/filters");
+  return data;
+};
+
+export const fetchCarById = async (id: string): Promise<Car> => {
+  const { data } = await axios.get<Car>(`/cars/${id}`);
+
   return data;
 };
