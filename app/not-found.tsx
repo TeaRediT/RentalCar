@@ -1,4 +1,4 @@
-import css from "./not-found.module.css";
+import css from "./notification.module.css";
 import ButtonLink from "@/components/ButtonLink/ButtonLink";
 
 export default function NotFound() {
@@ -13,8 +13,8 @@ export default function NotFound() {
           Sorry, the page you are looking for does not exist, has been removed,
           or is temporarily unavailable.
         </p>
-        <ButtonLink href="/" className={css.btn}>
-          Return to Home
+        <ButtonLink replace href="/" className={css.btn}>
+          Return to Catalog
         </ButtonLink>
       </div>
     </main>

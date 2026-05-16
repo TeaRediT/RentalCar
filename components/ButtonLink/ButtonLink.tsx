@@ -5,11 +5,21 @@ interface ButtonLinkProps {
   href: string;
   children: React.ReactNode;
   className?: string;
+  replace?: boolean;
 }
 
-const ButtonLink = ({ href, children, className }: ButtonLinkProps) => {
+const ButtonLink = ({
+  href,
+  children,
+  className,
+  replace,
+}: ButtonLinkProps) => {
   return (
-    <Link className={`${css.button} ${className ? className : ""}`} href={href}>
+    <Link
+      replace={replace}
+      className={`${css.button} ${className ? className : ""}`}
+      href={href}
+    >
       {children}
     </Link>
   );
