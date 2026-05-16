@@ -7,6 +7,13 @@ import { fetchCars, fetchFilters } from "@/lib/api";
 import CatalogClient from "./Catalog.client";
 import { carsQueryOptions } from "@/services/carsQueryOptions";
 import { defaultFilter } from "@/types/filter";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Catalog | RentalCar",
+  description:
+    "Browse our catalog of available cars for rent. Convenient filters by brand, price, and mileage.",
+};
 
 const Catalog = async () => {
   const queryClient = new QueryClient();

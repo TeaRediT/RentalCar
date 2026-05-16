@@ -1,6 +1,13 @@
 import Image from "next/image";
 import css from "./home.module.css";
 import ButtonLink from "@/components/ButtonLink/ButtonLink";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Home | RentalCar",
+  description:
+    "Rent a car quickly and conveniently. Best prices and a large fleet at RentalCar.",
+};
 
 const Home = () => {
   return (
