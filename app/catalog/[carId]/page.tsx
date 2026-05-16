@@ -20,7 +20,7 @@ export async function generateMetadata({
     const car = await fetchCarById(carId);
 
     return {
-      title: `${car.brand} ${car.model}`,
+      title: `${car.brand} ${car.model} | RentalCar`,
       description: `Rent a ${car.brand} ${car.model} (${car.year}) for just $${car.rentalPrice}. Location: ${car.location.city}, ${car.location.country}. Check rental conditions and book today!`,
       openGraph: {
         title: `Rent ${car.brand} ${car.model} | RentalCar`,
