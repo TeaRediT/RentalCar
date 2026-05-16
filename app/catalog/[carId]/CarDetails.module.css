@@ -1,13 +1,102 @@
 .page-wrapper {
   display: flex;
-  gap: 72px;
+  justify-content: space-between;
+
+  padding: 84px 120px 104px 120px;
 }
 
 .page-wrapper section {
-  width: calc((100% - 72px) / 2);
+  display: flex;
+  flex-direction: column;
+}
+
+.booking-section {
+  justify-content: space-between;
+  width: 640px;
+}
+
+.car-info-section {
+  padding-top: 20px;
+  width: 480px;
 }
 
 .img-wrapper {
   position: relative;
   height: 512px;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.car-base {
+  margin-bottom: 68px;
+}
+
+.car-title {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+
+  margin-bottom: 8px;
+}
+
+.car-name {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.33;
+
+  white-space: nowrap;
+}
+
+.car-id {
+  font-weight: 500;
+  color: var(--gray);
+
+  white-space: nowrap;
+}
+
+.car-details {
+  display: flex;
+  gap: 16px;
+
+  margin-bottom: 16px;
+}
+
+.car-address {
+  display: flex;
+  gap: 4px;
+}
+
+.price {
+  display: block;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.33;
+  color: var(--button);
+
+  margin-bottom: 32px;
+}
+
+.tech-list {
+  display: flex;
+  flex-direction: column;
+  gap: 110px;
+}
+
+.specs-title {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.2;
+
+  margin-bottom: 20px;
+}
+
+.specs-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.specs-item {
+  display: flex;
+  gap: 8px;
 }
