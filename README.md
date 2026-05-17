@@ -1,36 +1,77 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🚗 RentalCar - Car Rental Service
 
-## Getting Started
+[![Live Demo](https://img.shields.io/badge/Live-Demo-brightgreen.svg)](#) ## 📖 Description
+RentalCar is a modern frontend web application designed for a car rental company. It provides users with a seamless experience to browse a catalog of available vehicles, apply advanced filters, and view detailed specifications for each car before booking.
 
-First, run the development server:
+The project is built with **Next.js (App Router)** and **TypeScript**, focusing on performance, SEO, and a smooth user experience.
+
+## ✨ Main Features
+
+- **Home Page**: Engaging hero section with a clear call-to-action to start browsing.
+- **Interactive Catalog**: A dynamic list of cars fetched from a REST API.
+- **Advanced Filtering**: Users can filter the catalog by:
+  - Brand (single selection)
+  - Price (single selection)
+  - Mileage (min and max values)
+- **"Load More" Pagination**: Efficient data fetching using TanStack Query's `useInfiniteQuery` to load additional cars while keeping active filters applied.
+- **Dynamic Car Details**: Dedicated pages for each vehicle (`/catalog/[carId]`) with high-quality images, specifications, rental conditions, and a functional rental form.
+- **SEO Optimization**: Dynamically generated metadata and OpenGraph tags for individual car pages.
+
+## 🛠️ Tech Stack
+
+- **Framework:** [Next.js](https://nextjs.org/) (App Router)
+- **Language:** [TypeScript](https://www.typescriptlang.org/)
+- **State Management / Data Fetching:** [TanStack Query](https://tanstack.com/query/latest) (React Query)
+- **Styling:** CSS Modules
+- **Icons:** SVG Sprite
+
+## 🚀 Installation and Usage
+
+To run this project locally, follow these steps:
+
+### Prerequisites
+
+Make sure you have [Node.js](https://nodejs.org/) installed on your machine.
+
+### 1. Clone the repository
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone [https://github.com/](https://github.com/)[TeaRediT]/[rental-car].git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Navigate to the project directory
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+cd [rental-car]
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 3. Install dependencies
 
-## Learn More
+npm install
 
-To learn more about Next.js, take a look at the following resources:
+# or
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+yarn install
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 4. Setup Environment Variables
 
-## Deploy on Vercel
+Create a .env file in the root of your project and add your API endpoint:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+NEXT_PUBLIC_API_URL=[https://car-rental-api.goit.study](https://car-rental-api.goit.study)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### 5. Start the development server
+
+npm run dev
+
+# or
+
+yarn dev
+
+Open http://localhost:3000 in your browser to see the result.
+
+👤 Author
+[Vladyslav Bobro]
+
+GitHub: [@TeaRediT](https://github.com/TeaRediT)
+
+LinkedIn: [Vladyslav Bobro](https://www.linkedin.com/in/vladyslav-bobro/)
+
+This project was created as a test assignment.

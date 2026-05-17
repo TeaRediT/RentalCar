@@ -3,7 +3,7 @@ import { Car, CarsResponse } from "@/types/cars";
 import { activeFilters, FiltersRes } from "@/types/filter";
 import axios from "axios";
 
-axios.defaults.baseURL = "https://car-rental-api.goit.study";
+axios.defaults.baseURL = process.env.NEXT_PUBLIC_API_URL;
 
 export const fetchCars = async ({
   page,
