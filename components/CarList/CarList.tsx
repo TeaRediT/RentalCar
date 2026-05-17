@@ -2,19 +2,22 @@ import { Car } from "@/types/cars";
 import css from "./CarList.module.css";
 import Image from "next/image";
 import Svg from "../Svg/Svg";
+import { useFavoritesStore } from "@/lib/favoritesStore";
 
 interface CarListProps {
   cars: Car[];
 }
 
 const CarList = ({ cars }: CarListProps) => {
+  const { favorites, toggleFavorite } = useFavoritesStore();
+
   return (
     <>
       <ul className={css.list}>
         {cars.map((car, index) => {
           const mileage =
             car.mileage.toLocaleString("en-US").replace(/,/g, " ") ?? "";
-
+          const isFavorite = favorites.includes(car.id);
           return (
             <li key={car.id} className={css["list-item"]}>
               <div className={css["img-wrapper"]}>
@@ -26,7 +29,15 @@ const CarList = ({ cars }: CarListProps) => {
                   sizes="276px"
                   priority={index < 4}
                 ></Image>
-                <Svg id="heart-default" className={css.heart} />
+                <button
+                  className={css["heart-btn"]}
+                  onClick={() => toggleFavorite(car.id)}
+                >
+                  <Svg
+                    className={`${isFavorite && css["heart-active"]}`}
+                    id={`heart-${isFavorite ? "active" : "default"}`}
+                  />
+                </button>
               </div>
               <div className={css["car-info"]}>
                 <div className={css["car-title"]}>

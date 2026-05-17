@@ -26,10 +26,21 @@
   z-index: -11;
 }
 
-.heart {
+.heart-btn {
   position: absolute;
   top: 16px;
   right: 16px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.heart-active {
+  fill: var(--button);
 }
 
 .car-title {
