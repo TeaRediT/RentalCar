@@ -44,9 +44,9 @@ const CatalogClient = () => {
       </section>
       <section className={css["catalog-section"]}>
         <div className="container">
-          {cars.length > 0 && (
+          <h2 className="visually-hidden">Cars list</h2>
+          {cars.length > 0 ? (
             <>
-              <h2 className="visually-hidden">Cars list</h2>
               <CarList cars={cars} />
               {hasNextPage && (
                 <Button
@@ -58,6 +58,10 @@ const CatalogClient = () => {
                 </Button>
               )}
             </>
+          ) : (
+            <h3 className={css["no-found-title"]}>
+              No cars found matching your filters.
+            </h3>
           )}
         </div>
       </section>

@@ -1,7 +1,6 @@
 import { Car } from "@/types/cars";
 import css from "./CarList.module.css";
 import Image from "next/image";
-import ButtonLink from "../ButtonLink/ButtonLink";
 import Svg from "../Svg/Svg";
 
 interface CarListProps {
@@ -49,7 +48,13 @@ const CarList = ({ cars }: CarListProps) => {
                   </ul>
                 </div>
               </div>
-              <ButtonLink href={`/catalog/${car.id}`}>Read more</ButtonLink>
+              <a
+                className={css.btn}
+                href={`/catalog/${car.id}`}
+                target="_blank"
+              >
+                Read more
+              </a>
             </li>
           );
         })}

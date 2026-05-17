@@ -88,6 +88,24 @@
   background-color: var(--gray-light);
 }
 
-.list-item a {
+.btn {
   margin-top: auto;
+
+  height: 44px;
+  background-color: var(--button);
+  color: var(--white);
+  font-weight: 600;
+  line-height: 1.25;
+  border-radius: 12px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  transition: background-color 250ms ease-in-out;
+}
+
+.btn:hover,
+.btn:focus {
+  background-color: var(--button-hover);
 }

@@ -11,3 +11,8 @@
 .load-btn {
   margin: 80 auto 0 auto;
 }
+
+.no-found-title {
+  padding: 100px 0;
+  text-align: center;
+}
