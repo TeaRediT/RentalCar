@@ -6,6 +6,7 @@ import {
 } from "@tanstack/react-query";
 import CarDetailsClient from "./CarDetails.client";
 import { Metadata } from "next";
+import { notFound } from "next/navigation";
 
 interface CarDetailsProps {
   params: Promise<{ carId: string }>;
@@ -55,6 +56,13 @@ const CarDetails = async ({ params }: CarDetailsProps) => {
     queryKey: ["car", carId],
     queryFn: () => fetchCarById(carId),
   });
+
+  const carData = queryClient.getQueryData(["car", carId]);
+  const queryState = queryClient.getQueryState(["car", carId]);
+
+  if (!carData || queryState?.status === "error") {
+    notFound();
+  }
 
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>

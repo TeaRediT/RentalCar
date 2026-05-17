@@ -8,25 +8,22 @@ import Image from "next/image";
 import Svg from "@/components/Svg/Svg";
 import { useId } from "react";
 import CarRentForm from "@/components/CarRentForm/CarRentForm";
+import Loader from "@/components/Loader/Loader";
 
 const CarDetailsClient = () => {
   const { carId } = useParams<{ carId: string }>();
   const randomId = useId();
 
-  const {
-    data: car,
-    isLoading,
-    error,
-  } = useQuery({
+  const { data: car, isLoading } = useQuery({
     queryKey: ["car", carId],
     queryFn: () => fetchCarById(carId),
     refetchOnMount: false,
+    throwOnError: true,
   });
-
-  console.log(car);
 
   return (
     <main>
+      {isLoading && <Loader />}
       {car && (
         <article className={`${css["page-wrapper"]} container`}>
           <section className={css["booking-section"]}>

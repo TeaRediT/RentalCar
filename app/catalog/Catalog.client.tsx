@@ -6,16 +6,16 @@ import { fetchCars } from "@/lib/api";
 import { carsQueryOptions } from "@/services/carsQueryOptions";
 import CarList from "@/components/CarList/CarList";
 import CarSearchForm from "@/components/CarSearchForm/CarSearchForm";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { activeFilters, defaultFilter } from "@/types/filter";
-import { Car } from "@/types/cars";
 import Button from "@/components/Button/Button";
+import Loader from "@/components/Loader/Loader";
 
 const CatalogClient = () => {
   const [activeFilters, setActiveFilters] =
     useState<activeFilters>(defaultFilter);
 
-  const { data, isLoading, error, fetchNextPage, hasNextPage } =
+  const { data, error, fetchNextPage, hasNextPage, isFetching } =
     useInfiniteQuery({
       queryKey: ["cars", activeFilters],
       queryFn: ({ pageParam }) => fetchCars({ page: pageParam, activeFilters }),
@@ -23,11 +23,9 @@ const CatalogClient = () => {
       refetchOnMount: false,
     });
 
-  let cars: Car[] = [];
-
-  if (data) {
-    cars = data.pages.flatMap((page) => page.cars);
-  }
+  const cars = useMemo(() => {
+    return data ? data.pages.flatMap((page) => page.cars) : [];
+  }, [data]);
 
   const fetchValues = (values: activeFilters) => {
     setActiveFilters(values);
@@ -45,24 +43,29 @@ const CatalogClient = () => {
       <section className={css["catalog-section"]}>
         <div className="container">
           <h2 className="visually-hidden">Cars list</h2>
-          {cars.length > 0 ? (
-            <>
-              <CarList cars={cars} />
-              {hasNextPage && (
-                <Button
-                  onClick={fetchNextPage}
-                  className={css["load-btn"]}
-                  type="button"
-                >
-                  Load more
-                </Button>
-              )}
-            </>
-          ) : (
-            <h3 className={css["no-found-title"]}>
-              No cars found matching your filters.
-            </h3>
-          )}
+          <>
+            {cars.length > 0 && <CarList cars={cars} />}
+            {isFetching && <Loader />}
+            {!isFetching && hasNextPage && (
+              <Button
+                onClick={fetchNextPage}
+                className={css["load-btn"]}
+                type="button"
+              >
+                Load more
+              </Button>
+            )}
+            {!isFetching && cars.length === 0 && !error && (
+              <h3 className={css.notification}>
+                No cars found matching your filters.
+              </h3>
+            )}
+            {error && !isFetching && (
+              <h3 className={css.notification}>
+                Something went wrong while searching cars.
+              </h3>
+            )}
+          </>
         </div>
       </section>
     </main>
