@@ -37,7 +37,7 @@ const CatalogClient = () => {
       <section className={css["search-section"]}>
         <div className="container">
           <h2 className="visually-hidden">Search cars</h2>
-          <CarSearchForm handleSubmit={fetchValues} />
+          <CarSearchForm isSearching={isFetching} handleSubmit={fetchValues} />
         </div>
       </section>
       <section className={css["catalog-section"]}>

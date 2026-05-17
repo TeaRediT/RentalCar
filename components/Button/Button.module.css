@@ -24,6 +24,11 @@
   background-color: var(--button-hover);
 }
 
+.btn-submit:disabled {
+  background-color: var(--gray);
+  cursor: auto;
+}
+
 .btn-button {
   background-color: transparent;
   border: 1px solid var(--button);

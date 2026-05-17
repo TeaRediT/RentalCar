@@ -123,8 +123,8 @@ const CarRentForm = ({ carId }: CarRentFormProps) => {
                 </Field>
               </div>
             </div>
-            <Button className={css.button} type="submit">
-              Send
+            <Button disabled={isPending} className={css.button} type="submit">
+              {isPending ? "Sending..." : "Send"}
             </Button>
           </Form>
         </Formik>

@@ -20,6 +20,7 @@ export interface SelectOption {
 
 interface CarSearchFormProps {
   handleSubmit: (values: activeFilters) => void;
+  isSearching: boolean;
 }
 
 const initialValues: activeFilters = {
@@ -29,7 +30,7 @@ const initialValues: activeFilters = {
   maxMileage: "",
 };
 
-const CarSearchForm = ({ handleSubmit }: CarSearchFormProps) => {
+const CarSearchForm = ({ handleSubmit, isSearching }: CarSearchFormProps) => {
   const fieldId = useId();
 
   const { data, isLoading, error } = useQuery({
@@ -250,7 +251,9 @@ const CarSearchForm = ({ handleSubmit }: CarSearchFormProps) => {
                 </div>
               </div>
             </div>
-            <Button type="submit">Search</Button>
+            <Button disabled={isSearching} type="submit">
+              {isSearching ? "Searching..." : "Search"}
+            </Button>
           </Form>
         </Formik>
       )}
