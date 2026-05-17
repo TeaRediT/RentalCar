@@ -10,7 +10,7 @@ const Header = () => {
   return (
     <header className={css.header}>
       <div className={`container ${css["header-items"]}`}>
-        <Link href={"/"}>
+        <Link href={"/"} aria-label="home">
           <svg width={104} height={16}>
             <use href="/sprite.svg#icon-logo"></use>
           </svg>

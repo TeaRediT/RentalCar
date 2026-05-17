@@ -30,6 +30,7 @@ const CarList = ({ cars }: CarListProps) => {
                   priority={index < 4}
                 ></Image>
                 <button
+                  aria-label="add to favorites"
                   className={css["heart-btn"]}
                   onClick={() => toggleFavorite(car.id)}
                 >
