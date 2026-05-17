@@ -1,8 +1,8 @@
 .form-wrapper {
   padding: 32px;
-  border: 1px solid var(--gray-light);
+  outline: 1px solid var(--gray-light);
   border-radius: 10px;
-  height: 424;
+  height: 424px;
 }
 
 .title {

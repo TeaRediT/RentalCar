@@ -17,7 +17,7 @@ const ButtonLink = ({
   return (
     <Link
       replace={replace}
-      className={`${css.button} ${className ? className : ""}`}
+      className={`${css.button} ${className || ""}`}
       href={href}
     >
       {children}

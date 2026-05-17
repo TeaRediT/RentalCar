@@ -6,13 +6,11 @@ import { useParams } from "next/navigation";
 import css from "./CarDetails.module.css";
 import Image from "next/image";
 import Svg from "@/components/Svg/Svg";
-import { useId } from "react";
 import CarRentForm from "@/components/CarRentForm/CarRentForm";
 import Loader from "@/components/Loader/Loader";
 
 const CarDetailsClient = () => {
   const { carId } = useParams<{ carId: string }>();
-  const randomId = useId();
 
   const { data: car, isLoading } = useQuery({
     queryKey: ["car", carId],
@@ -30,7 +28,7 @@ const CarDetailsClient = () => {
             <div className={css["img-wrapper"]}>
               <Image
                 src={car.img}
-                alt="car image"
+                alt={`${car.brand} ${car.model}`}
                 fill
                 sizes="640px"
                 loading="eager"
@@ -69,10 +67,7 @@ const CarDetailsClient = () => {
                 <h3 className={css["specs-title"]}>Rental Conditions:</h3>
                 <ul className={css["specs-list"]}>
                   {car.rentalConditions.map((con, index) => (
-                    <li
-                      key={`${randomId}-"con"-${index}`}
-                      className={css["specs-item"]}
-                    >
+                    <li key={index} className={css["specs-item"]}>
                       <Svg id="check-circle" />
                       {con}
                     </li>
@@ -106,10 +101,7 @@ const CarDetailsClient = () => {
                 </h3>
                 <ul className={css["specs-list"]}>
                   {car.features.map((func, index) => (
-                    <li
-                      key={`${randomId}-"func"-${index}`}
-                      className={css["specs-item"]}
-                    >
+                    <li key={index} className={css["specs-item"]}>
                       <Svg id="check-circle" />
                       <p>{func}</p>
                     </li>

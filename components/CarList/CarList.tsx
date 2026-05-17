@@ -63,6 +63,7 @@ const CarList = ({ cars }: CarListProps) => {
                 className={css.btn}
                 href={`/catalog/${car.id}`}
                 target="_blank"
+                rel="noopener noreferrer"
               >
                 Read more
               </a>

@@ -6,7 +6,7 @@ import css from "./CarSearchForm.module.css";
 import { useQuery } from "@tanstack/react-query";
 import { fetchFilters } from "@/lib/api";
 import Select from "react-select";
-import { activeFilters } from "@/types/filter";
+import { ActiveFilters } from "@/types/filter";
 import { carSearchFormSchema } from "./CarSearchFormSchema";
 import { generatePrices } from "@/services/generatePricesByRange";
 import CustomChevron from "../CustomChevron/CustomChevron";
@@ -19,11 +19,11 @@ export interface SelectOption {
 }
 
 interface CarSearchFormProps {
-  handleSubmit: (values: activeFilters) => void;
+  handleSubmit: (values: ActiveFilters) => void;
   isSearching: boolean;
 }
 
-const initialValues: activeFilters = {
+const initialValues: ActiveFilters = {
   brand: "",
   price: "",
   minMileage: "",
@@ -67,8 +67,7 @@ const CarSearchForm = ({ handleSubmit, isSearching }: CarSearchFormProps) => {
     };
   }, [data]);
 
-  //form submit
-  const onFormSubmit = (values: activeFilters) => {
+  const onFormSubmit = (values: ActiveFilters) => {
     const cleanValues = {
       ...values,
       minMileage: values.minMileage ? values.minMileage.replace(/,/g, "") : "",
@@ -223,7 +222,12 @@ const CarSearchForm = ({ handleSubmit, isSearching }: CarSearchFormProps) => {
               </div>
 
               <div>
-                <label htmlFor={`${fieldId}-mileage-to`}></label>
+                <label
+                  htmlFor={`${fieldId}-mileage-to`}
+                  className="visually-hidden"
+                >
+                  Car mileage to
+                </label>
                 <div className={css["input-wrapper"]}>
                   <span className={css.prefix}>To</span>
                   <Field name="maxMileage">

@@ -5,7 +5,7 @@ export const defaultFilter = {
   maxMileage: "",
 };
 
-export interface activeFilters {
+export interface ActiveFilters {
   brand: string;
   price: string;
   minMileage: string;

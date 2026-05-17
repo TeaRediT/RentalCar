@@ -7,13 +7,13 @@ import { carsQueryOptions } from "@/services/carsQueryOptions";
 import CarList from "@/components/CarList/CarList";
 import CarSearchForm from "@/components/CarSearchForm/CarSearchForm";
 import { useMemo, useState } from "react";
-import { activeFilters, defaultFilter } from "@/types/filter";
+import { ActiveFilters, defaultFilter } from "@/types/filter";
 import Button from "@/components/Button/Button";
 import Loader from "@/components/Loader/Loader";
 
 const CatalogClient = () => {
   const [activeFilters, setActiveFilters] =
-    useState<activeFilters>(defaultFilter);
+    useState<ActiveFilters>(defaultFilter);
 
   const { data, error, fetchNextPage, hasNextPage, isFetching } =
     useInfiniteQuery({
@@ -27,7 +27,7 @@ const CatalogClient = () => {
     return data ? data.pages.flatMap((page) => page.cars) : [];
   }, [data]);
 
-  const fetchValues = (values: activeFilters) => {
+  const fetchValues = (values: ActiveFilters) => {
     setActiveFilters(values);
   };
 

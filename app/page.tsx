@@ -12,22 +12,25 @@ export const metadata: Metadata = {
 const Home = () => {
   return (
     <main>
-      <div className={`container ${css.hero}`}>
-        <Image
-          className={css.img}
-          src="/home/hero.webp"
-          alt="car"
-          priority
-          fill
-        />
-        <h1 className={css.title}>Find your perfect rental car</h1>
-        <p className={css.slogan}>
-          Reliable and budget-friendly rentals for any journey
-        </p>
-        <ButtonLink href={"/catalog"} className={css.btn}>
-          View Catalog
-        </ButtonLink>
-      </div>
+      <section>
+        <div className={`container ${css.hero}`}>
+          <Image
+            className={css.img}
+            src="/home/hero.webp"
+            alt="car"
+            priority
+            fill
+            sizes="1440px"
+          />
+          <h1 className={css.title}>Find your perfect rental car</h1>
+          <p className={css.slogan}>
+            Reliable and budget-friendly rentals for any journey
+          </p>
+          <ButtonLink href={"/catalog"} className={css.btn}>
+            View Catalog
+          </ButtonLink>
+        </div>
+      </section>
     </main>
   );
 };

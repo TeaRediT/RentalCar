@@ -1,6 +1,6 @@
 "use client";
 
-import { Field, FieldProps, Form, Formik } from "formik";
+import { Field, FieldProps, Form, Formik, FormikHelpers } from "formik";
 import css from "./CarRentForm.module.css";
 import { useId } from "react";
 import Button from "../Button/Button";
@@ -12,6 +12,12 @@ import toast from "react-hot-toast";
 
 interface CarRentFormProps {
   carId: string;
+}
+
+interface FormValues {
+  name: string;
+  email: string;
+  comment: string;
 }
 
 const initialValues = {
@@ -34,11 +40,21 @@ const CarRentForm = ({ carId }: CarRentFormProps) => {
     },
   });
 
-  const handleSubmit = (values: BookingBody) => {
+  const handleSubmit = (
+    values: FormValues,
+    { resetForm }: FormikHelpers<FormValues>,
+  ) => {
     const { comment, ...restValues } = values;
-    const payload = comment?.trim() === "" ? restValues : values;
+    const payload: BookingBody = comment?.trim() === "" ? restValues : values;
 
-    mutate({ carId, payload: payload });
+    mutate(
+      { carId, payload: payload },
+      {
+        onSuccess: () => {
+          resetForm();
+        },
+      },
+    );
   };
 
   return (
@@ -56,7 +72,9 @@ const CarRentForm = ({ carId }: CarRentFormProps) => {
           <Form className={css.form}>
             <div className={css.fields}>
               <div className={css["field-set"]}>
-                <label htmlFor={`${fieldId}-name`}></label>
+                <label htmlFor={`${fieldId}-name`} className="visually-hidden">
+                  Name
+                </label>
                 <Field name="name">
                   {({ field, meta }: FieldProps) => {
                     const hasError = meta.touched && meta.error;
@@ -79,7 +97,9 @@ const CarRentForm = ({ carId }: CarRentFormProps) => {
                 </Field>
               </div>
               <div className={css["field-set"]}>
-                <label htmlFor={`${fieldId}-email`}></label>
+                <label htmlFor={`${fieldId}-email`} className="visually-hidden">
+                  Email
+                </label>
                 <Field name="email">
                   {({ field, meta }: FieldProps) => {
                     const hasError = meta.touched && meta.error;
@@ -102,7 +122,12 @@ const CarRentForm = ({ carId }: CarRentFormProps) => {
                 </Field>
               </div>
               <div className={css["field-set"]}>
-                <label htmlFor={`${fieldId}-comment`}></label>
+                <label
+                  htmlFor={`${fieldId}-comment`}
+                  className="visually-hidden"
+                >
+                  Your comments
+                </label>
                 <Field name="comment">
                   {({ field, meta }: FieldProps) => {
                     const hasError = meta.touched && meta.error;

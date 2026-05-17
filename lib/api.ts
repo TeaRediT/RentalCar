@@ -1,6 +1,6 @@
 import { BookingBody } from "@/types/booking";
 import { Car, CarsResponse } from "@/types/cars";
-import { activeFilters, FiltersRes } from "@/types/filter";
+import { ActiveFilters, FiltersRes } from "@/types/filter";
 import axios from "axios";
 
 axios.defaults.baseURL = process.env.NEXT_PUBLIC_API_URL;
@@ -10,7 +10,7 @@ export const fetchCars = async ({
   activeFilters,
 }: {
   page: number;
-  activeFilters: activeFilters;
+  activeFilters: ActiveFilters;
 }): Promise<CarsResponse> => {
   const params = new URLSearchParams();
   params.append("page", String(page));
@@ -23,7 +23,7 @@ export const fetchCars = async ({
   if (activeFilters.maxMileage !== "")
     params.append("maxMileage", activeFilters.maxMileage);
 
-  const { data } = await axios.get<CarsResponse>(`/cars?${params}`);
+  const { data } = await axios.get<CarsResponse>("/cars", { params });
 
   return data;
 };
@@ -41,13 +41,9 @@ export const fetchCarById = async (carId: string): Promise<Car> => {
 
 export const createBooking = async (
   carId: string,
-  { name, email, comment }: BookingBody,
+  payload: BookingBody,
 ): Promise<string> => {
-  const { data } = await axios.post(`/cars/${carId}/booking-requests`, {
-    name,
-    email,
-    comment,
-  });
+  const { data } = await axios.post(`/cars/${carId}/booking-requests`, payload);
 
   return data;
 };

@@ -18,7 +18,7 @@ const Button = ({
   return (
     <button
       onClick={type === "button" ? onClick : undefined}
-      className={`${className} ${css.btn} ${type === "button" ? css["btn-button"] : css["btn-submit"]}`}
+      className={`${className || ""} ${css.btn} ${type === "button" ? css["btn-button"] : css["btn-submit"]}`}
       type={type}
       disabled={disabled}
     >

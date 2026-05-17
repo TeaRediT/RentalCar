@@ -19,12 +19,12 @@ const Catalog = async () => {
   const queryClient = new QueryClient();
 
   await Promise.all([
-    await queryClient.prefetchInfiniteQuery({
+    queryClient.prefetchInfiniteQuery({
       queryKey: ["cars", defaultFilter],
       queryFn: () => fetchCars({ page: 1, activeFilters: defaultFilter }),
       ...carsQueryOptions,
     }),
-    await queryClient.prefetchQuery({
+    queryClient.prefetchQuery({
       queryKey: ["filters"],
       queryFn: fetchFilters,
     }),
