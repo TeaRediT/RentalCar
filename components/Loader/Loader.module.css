@@ -1,0 +1,11 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.animation-wrapper {
+  width: 250px;
+  height: 250px;
+}
