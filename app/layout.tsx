@@ -4,6 +4,7 @@ import "./globals.css";
 import TanStackProvider from "@/components/TanStackProvider/TanStackProvider";
 import Header from "@/components/Header/Header";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import { Toaster } from "react-hot-toast";
 
 export const metadata: Metadata = {
   title: "Car Rental Service | RentalCar",
@@ -46,6 +47,7 @@ export default function RootLayout({
           <Header />
           {children}
           <ReactQueryDevtools />
+          <Toaster position="top-right" />
         </body>
       </TanStackProvider>
     </html>

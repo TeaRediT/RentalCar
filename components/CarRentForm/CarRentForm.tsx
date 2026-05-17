@@ -8,6 +8,7 @@ import { carRentFormSchema } from "./CarRentFormSchema";
 import { useMutation } from "@tanstack/react-query";
 import { createBooking } from "@/lib/api";
 import { BookingBody } from "@/types/booking";
+import toast from "react-hot-toast";
 
 interface CarRentFormProps {
   carId: string;
@@ -26,10 +27,10 @@ const CarRentForm = ({ carId }: CarRentFormProps) => {
     mutationFn: ({ carId, payload }: { carId: string; payload: BookingBody }) =>
       createBooking(carId, payload),
     onSuccess: () => {
-      console.log("yes");
+      toast.success("Your request has been sent!");
     },
     onError: () => {
-      console.log("no");
+      toast.error("Something went wrong! Please try again later.");
     },
   });
 
