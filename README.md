@@ -1,6 +1,9 @@
 # 🚗 RentalCar - Car Rental Service
 
-[![Live Demo](https://img.shields.io/badge/Live-Demo-brightgreen.svg)](#) ## 📖 Description
+[![Live Demo](https://img.shields.io/badge/Live-Demo-brightgreen.svg)](https://rental-car-delta-snowy.vercel.app/)
+
+### 📖 Description
+
 RentalCar is a modern frontend web application designed for a car rental company. It provides users with a seamless experience to browse a catalog of available vehicles, apply advanced filters, and view detailed specifications for each car before booking.
 
 The project is built with **Next.js (App Router)** and **TypeScript**, focusing on performance, SEO, and a smooth user experience.
@@ -47,7 +50,7 @@ cd [rental-car]
 
 npm install
 
-# or
+or
 
 yarn install
 
@@ -61,7 +64,7 @@ NEXT_PUBLIC_API_URL=[https://car-rental-api.goit.study](https://car-rental-api.g
 
 npm run dev
 
-# or
+or
 
 yarn dev
 

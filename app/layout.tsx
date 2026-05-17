@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     description: "Find your perfect rental car today.",
     images: [
       {
-        url: "/public/home/hero.webp",
+        url: "https://res.cloudinary.com/dwzcagvwl/image/upload/v1779031914/hero_ha6gwq.webp",
         width: 1200,
         height: 630,
         alt: "rental car",
